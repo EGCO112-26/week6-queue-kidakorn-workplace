@@ -31,6 +31,7 @@ if(new_node){
     } 
  }
 }
+//inw
 
 
 int dequeue(NodePtr* head, NodePtr* tail){
