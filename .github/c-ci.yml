@@ -1,0 +1,21 @@
+name: C Queue System CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Compile C Code
+      run: gcc main.c -o queue_system
+
+    - name: Run Application
+      run: ./queue_system

@@ -1,0 +1,5 @@
+{
+  "name": "Ramen Queue POS",
+  "description": "A modern React implementation of a C-based queue ordering system, featuring menu selection, queue management, and cashier payment processing.",
+  "requestFramePermissions": []
+}

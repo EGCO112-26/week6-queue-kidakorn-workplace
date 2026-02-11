@@ -1,53 +1,43 @@
-//
-//  linkedlist.h
-//  LinkedList_simple
-//
-//  Created by Mingmanas Sivaraksa on 5/2/2566 BE.
-//
 #ifndef Node_h
 #define Node_h
 
-struct node
-{
-    int data;
-    struct node *nextPtr;
-};
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct node Node;
-typedef struct node* NodePtr;
+typedef struct node {
+    struct node* next;
+    int order_number;
+    int q;
+} order;
 
-
-void enqueue(NodePtr * head, NodePtr* tail, int x){
-  Node* new_node=(NodePtr) malloc(sizeof(Node));
-if(new_node){ 
-    new_node->data=x;
-    new_node->nextPtr=NULL;
-    if(*tail){
-      (*tail)->nextPtr=new_node;
-      *tail=new_node;
-    }else{
-      *head=new_node;
-      *tail=new_node;
-    } 
- }
-}
-//inw
-
-
-int dequeue(NodePtr* head, NodePtr* tail){
-  NodePtr t=*head;
-   if(t){
-   int value= t->data;
-   *head=t->nextPtr;
-   if(*head==NULL)
-      *tail=NULL;
-   free(t);
-   return value;
-   }
-   printf("Empty queue");
-   return 0;
+void enqueue(order** head, order** tail, int order_number, int q) {
+    order* new_node = (order*)malloc(sizeof(order));
+    if (new_node) {
+        new_node->order_number = order_number;
+        new_node->q = q;
+        new_node->next = NULL;
+        if (*tail) {
+            (*tail)->next = new_node;
+            *tail = new_node;
+        } else {
+            *head = new_node;
+            *tail = new_node;
+        }
+    }
 }
 
-
+int dequeue(order** head, order** tail) {
+    order* t = *head;
+    if (t) {
+        int value = t->order_number;
+        *head = t->next;
+        if (*head == NULL)
+            *tail = NULL;
+        free(t);
+        return value;
+    }
+    printf("Empty queue\n");
+    return 0;
+}
 
 #endif

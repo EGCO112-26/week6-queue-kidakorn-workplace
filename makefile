@@ -1,4 +1,4 @@
-argument: main.c 
+compile: main.c 
 	gcc main.c -o Q
 run: Q
 	./Q
