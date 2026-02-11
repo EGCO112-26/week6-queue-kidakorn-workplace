@@ -21,7 +21,7 @@ if(new_node){
   q->size++;
  }
 }
-//inw inw inw
+
 
 int dequeue_struct(Queue *q){
    NodePtr t=q->headPtr;
